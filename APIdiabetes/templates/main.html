@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="UTF-8">
+        <title>Deploy Predictbetes</title>
+    <!-- <link rel="stylesheet" href="main.css"> -->
+    </head>
+
+    <body>
+        <form action="{{ url_for('predict')}}" method="post">
+            <input type="number" name="age" placeholder="age" required="required" />
+            <input type="number" name="gender_male" placeholder="gender_male" required="required" />
+            <input type="number" name="polyuria_yes" placeholder="polyuria_yes" required="required" />
+            <input type="number" name="polydipsia_yes" placeholder="polydipsia_yes" required="required" />
+            <input type="number" name="alopecia_yes" placeholder="alopecia_yes" required="required" />
+
+            <button type="submit" class="btn btn-primary btn-block">Resultado</button>
+        </form>
+
+
+
+
+
+
+    </body>
+
+
+
+
+</html>
