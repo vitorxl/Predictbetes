@@ -1,6 +1,5 @@
-<!DOCTYPE html>
-<html>
-
+<!doctype html>
+<title>Preditor Diabetes</title> 
     <head>
         <meta charset="UTF-8">
         <title>Deploy Predictbetes</title>
@@ -8,7 +7,7 @@
     </head>
 
     <body>
-        <form action="{{ url_for('predict')}}" method="post">
+        <form method="post">
             <input type="number" name="age" placeholder="age" required="required" />
             <input type="number" name="gender_male" placeholder="gender_male" required="required" />
             <input type="number" name="polyuria_yes" placeholder="polyuria_yes" required="required" />
@@ -19,13 +18,6 @@
         </form>
 
 
-
-
-
-
     </body>
 
-
-
-
-</html>
+    </html>
