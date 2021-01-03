@@ -7,7 +7,7 @@
     </head>
 
     <body>
-        <form method="post">
+        <form action="{{ url_for('preditor')}}" method="POST">
             <input type="number" name="age" placeholder="age" required="required" />
             <input type="number" name="gender_male" placeholder="gender_male" required="required" />
             <input type="number" name="polyuria_yes" placeholder="polyuria_yes" required="required" />
