@@ -1,6 +1,5 @@
 from flask import Flask, request, jsonify, render_template
 import pickle
-import pandas as pd
 import numpy as np
 
 app = Flask(__name__)
@@ -8,18 +7,19 @@ app = Flask(__name__)
 features = ["Age", "Gender_Male", "Polyuria_Yes", "Polydipsia_Yes", "Alopecia_Yes"]
 modelo  = pickle.load(open("../dt_reduzido.sav", "rb"))
 
-@app.route("/")
+@app.route("/", methods = ["GET", "POST"])
 def home():
-    #return "Minha HOME"
-    return render_template("main.html")
+    if request.method == "GET":
+        return render_template("main.html")
 
-@app.route("/preditor", methods = ["POST"])
-def preditor():
-    #dados = request.get_json()
-    #dados_input = [dados[col] for col in request.form]
-    #resultado = modelo.predict([dados_input])
-    #return jsonify(resultado = resultado[0])
-    req = 10
-    print(req)
+    if request.method == "POST":
+        age = int(request.form["age"])
+        gender_male = int(request.form["gender_male"])
+        polyuria_yes = int(request.form["polyuria_yes"])
+        polydipsia_yes = int(request.form["polydipsia_yes"])
+        alopecia_yes = int(request.form["alopecia_yes"])
+        resultado = modelo.predict([[age, gender_male, polyuria_yes, polydipsia_yes, alopecia_yes]])
+        return str(resultado)
+
 
 app.run(debug = True)
