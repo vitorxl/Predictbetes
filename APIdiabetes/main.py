@@ -21,6 +21,7 @@ def home():
         obesity_yes = int(request.form["obesity_yes"])
 
         resultado = modelo.predict([[age, polyuria_yes, polydipsia_yes, weakness_yes, visual_blurring_yes,delayed_healing_yes, alopecia_yes, obesity_yes]])
+        
         return str(resultado)
 
 app.run(debug = True)
