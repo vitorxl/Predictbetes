@@ -13,16 +13,20 @@ def home():
     if request.method == "POST":
         age = int(request.form["age"])
         polyuria_yes = int(request.form["polyuria_yes"])
-        polydipsia_yes = int(request.form["polydipsia_yes"])
+        #polydipsia_yes = int(request.form["polydipsia_yes"])
         weakness_yes = int(request.form["weakness_yes"])
         visual_blurring_yes = int(request.form["visual_blurring_yes"])
         delayed_healing_yes = int(request.form["delayed_healing_yes"])
         alopecia_yes = int(request.form["alopecia_yes"])
         obesity_yes = int(request.form["obesity_yes"])
 
+        polydipsia_yes = 0
+        if request.form.get("polydipsia_yes"):
+            polydipsia_yes = 1
+
         resultado = modelo.predict([[age, polyuria_yes, polydipsia_yes, weakness_yes, visual_blurring_yes,delayed_healing_yes, alopecia_yes, obesity_yes]])
         
-        return str(resultado)
+        return str(resultado) 
 
 app.run(debug = True)
 
