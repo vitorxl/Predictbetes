@@ -31,6 +31,8 @@ y = diabetes['class']
 lg = LogisticRegression(max_iter = 10000)
 lg.fit(X, y)
 
+proba = lg.predict_proba([[10,1,1,1,1,1,1,1,1]])
+print(proba[:,1].round(3))
 #pickle.dump(lg, open("lg.pkl", "wb"))
 
 

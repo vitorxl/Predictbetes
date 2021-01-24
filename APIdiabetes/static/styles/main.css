@@ -1,7 +1,25 @@
-.container {
-    width: 400px;
-}
-
-.inputes {
-    white-space: nowrap;
-}
+h1 {
+    text-align: center; 
+ }
+ 
+ .descrição {
+     text-align: center;
+ }
+ 
+ .container {
+     width: 400px;
+ }
+ 
+ .inputes {
+     white-space: nowrap;
+ }
+ 
+ label {
+     width: 180px;
+     display: inline-block;
+ }
+ 
+ input {
+     width: 40px;
+ }
+ 

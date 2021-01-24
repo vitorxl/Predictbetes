@@ -1,5 +1,6 @@
 from flask import Flask, request, render_template
 import pickle
+import numpy
 
 app = Flask(__name__)
 
@@ -50,6 +51,6 @@ def home():
         
         probabilidade = modelo2.predict_proba([[age, polyuria_yes, polydipsia_yes, visual_blurring_yes, itching_yes, delayed_healing_yes, partial_paresis_yes, alopecia_yes, obesity_yes]])
         
-        return "A probabilidade de você ser diabética(o) é: %s" % probabilidade[:,1]
+        return render_template("main.html", probabilidade = "{}%".format(int(probabilidade[:,1].round(2)*100)) )
 
 app.run(debug = True)
