@@ -3,7 +3,7 @@ import pickle
 
 app = Flask(__name__)
 
-modelo  = pickle.load(open("../dt_reduzido.pkl", "rb"))
+modelo2 = pickle.load(open("../Model/lg.pkl", "rb")) #logistic regression
 
 @app.route("/", methods = ["GET", "POST"])
 def home():
@@ -12,23 +12,44 @@ def home():
 
     if request.method == "POST":
         age = int(request.form["age"])
-        polyuria_yes = int(request.form["polyuria_yes"])
-        #polydipsia_yes = int(request.form["polydipsia_yes"])
-        weakness_yes = int(request.form["weakness_yes"])
-        visual_blurring_yes = int(request.form["visual_blurring_yes"])
-        delayed_healing_yes = int(request.form["delayed_healing_yes"])
-        alopecia_yes = int(request.form["alopecia_yes"])
-        obesity_yes = int(request.form["obesity_yes"])
 
         polydipsia_yes = 0
+        polyuria_yes = 0
+        visual_blurring_yes = 0
+        itching_yes = 0
+        delayed_healing_yes = 0
+        partial_paresis_yes = 0
+        alopecia_yes = 0 
+        obesity_yes = 0
+
         if request.form.get("polydipsia_yes"):
             polydipsia_yes = 1
 
-        resultado = modelo.predict([[age, polyuria_yes, polydipsia_yes, weakness_yes, visual_blurring_yes,delayed_healing_yes, alopecia_yes, obesity_yes]])
+        if request.form.get("polyuria_yes"):
+            polyuria_yes = 1
+
+        if request.form.get("visual_blurring_yes"):
+            visual_blurring_yes = 1
+
+        if request.form.get("itching_yes"):
+            itching_yes = 1
+
+        if request.form.get("delayed_healing_yes"):
+            delayed_healing_yes = 1
+
+        if request.form.get("partial_paresis_yes"):
+            partial_paresis_yes = 1
+
+        if request.form.get("alopecia_yes"):
+            alopecia_yes = 1
+
+        if request.form.get("obesity_yes"):
+            obesity_yes = 1
         
-        return str(resultado) 
+        #resultado = modelo2.predict([[age, polyuria_yes, polydipsia_yes, visual_blurring_yes, itching_yes, delayed_healing_yes, partial_paresis_yes, alopecia_yes, obesity_yes]])
+        
+        probabilidade = modelo2.predict_proba([[age, polyuria_yes, polydipsia_yes, visual_blurring_yes, itching_yes, delayed_healing_yes, partial_paresis_yes, alopecia_yes, obesity_yes]])
+        
+        return "A probabilidade de você ser diabética(o) é: %s" % probabilidade[:,1]
 
 app.run(debug = True)
-
-
-features = ['Age', 'Polyuria_Yes', 'Polydipsia_Yes', 'weakness_Yes', 'visual blurring_Yes', 'delayed healing_Yes', 'Alopecia_Yes', 'Obesity_Yes']

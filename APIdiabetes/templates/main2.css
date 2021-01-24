@@ -14,5 +14,13 @@ h1 {
     white-space: nowrap;
 }
 
+label {
+    width: 180px;
+    display: inline-block;
+}
+
+input {
+    width: 40px;
+}
 
 
