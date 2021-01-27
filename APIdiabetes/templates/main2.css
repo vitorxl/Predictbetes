@@ -23,4 +23,28 @@ input {
     width: 40px;
 }
 
+form {
+    background-color: aquamarine;    
+    padding: 30px;
+    width: 300px;
+    border-radius: 50px;
+    border-color: cadetblue;
+    border-width: 3px;
+    border-style: solid;
+}
+
+button {
+    transition: 0.2s;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #86ff3b;
+    box-shadow: 0 0 0 4px darkcyan,
+                0 0 0 6px #86ff3b;
+}
+
+li {
+    margin: 10px;
+}
 
