@@ -1,5 +1,6 @@
 h1 {
    text-align: center; 
+   background-color: cadetblue;
 }
 
 .descrição {
@@ -17,6 +18,7 @@ h1 {
 label {
     width: 180px;
     display: inline-block;
+    margin: 10px;
 }
 
 input {
@@ -24,27 +26,51 @@ input {
 }
 
 form {
-    background-color: aquamarine;    
+    background-color: azure;    
     padding: 30px;
     width: 300px;
     border-radius: 50px;
     border-color: cadetblue;
     border-width: 3px;
     border-style: solid;
+    margin: auto;
 }
 
 button {
-    transition: 0.2s;
+    background-color: rgb(160, 179, 185);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    transition: 0.5s;
     margin-top: 10px;
 }
 
 button:hover {
-    background-color: #86ff3b;
-    box-shadow: 0 0 0 4px darkcyan,
-                0 0 0 6px #86ff3b;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 }
 
 li {
     margin: 10px;
 }
 
+.resultado {
+    font-size: 30px;
+}
+
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+
+    position: absolute;
+    z-index: 1;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+}

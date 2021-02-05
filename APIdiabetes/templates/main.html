@@ -9,14 +9,19 @@
 
     <body>
         <h1>Preditor de Diabetes</h1>
-        <p class="descrição">Preencha o formulário abaixo para saber se você tem ou não diabetes</p>
+        <p class="descrição">Preencha a idade e marque nos sintomas abaixo para estimar a probabilididade de você ser diabético(a)</p>
         <form action="http://localhost:5000" method="POST">
 
             <div class="container">
+
+
+                <div class="tooltip">
                 <span class="inputes">
                     <label for="age">Idade</label>
+                    <span class="tooltiptext">sintomas bla bla</span>
                     <input type="text" name="age" required="required" />
                 </span>    
+                </div>
 
                 <span class="inputes">
                     <label for="polyuria_yes">Poliúria</label>
@@ -62,13 +67,14 @@
             <button type="submit" class="btn btn-primary btn-block">Gerar resultado</button>
         </form>
 
-        <p>A probabilidade de você ser diabética(o) é: {{probabilidade}}</p>
+
+        <p class="resultado">{{probabilidade}}</p>
 
         <h2>Informações sobre os sintomas</h2>
 
         <ul>
             <li>
-                Poliúria: aumento significativo na produção de urina, maior do que 2,5 litros por dia. Não confundir com necessidade de se urinar várias vezes por dia. Condição também conhecida como diurese, é um dos sintomas mais comuns em pessoas com diabetes não controlada.
+                Poliúria: aumento significativo na produção de urina, maior do que 2,5 litros por dia. Não confundir com a vontade urinar várias vezes por dia. Condição também conhecida como diurese, é um dos sintomas mais comuns em pessoas com diabetes não controlada.
             </li>
             <li>
                 Polidipsia: sede excessiva. Geralmente acompanhada de poliúria (ver acima).
@@ -77,7 +83,7 @@
                 Visão embaçada: diabetes pode causar o aparecimento de diversos problemas que afetam a visão. Os problemas mais recorrentes são glaucoma e catarata.
             </li>
             <li>
-                Coceira: geralmente ocorre nas mão, pés, braços e pernas. A glicose elevada no sangue pode causar condições que provocam a coceira e aparecimento de sintomas na pele.
+                Coceira: geralmente ocorre nas mão, pés, braços e pernas. A glicose elevada no sangue pode causar diversas condições que provocam coceira e outros sintomas na pele.
             </li>
             <li>
                 Cicatrização tardia: demora na cicatrização de feridas.

@@ -51,6 +51,6 @@ def home():
         
         probabilidade = modelo2.predict_proba([[age, polyuria_yes, polydipsia_yes, visual_blurring_yes, itching_yes, delayed_healing_yes, partial_paresis_yes, alopecia_yes, obesity_yes]])
         
-        return render_template("main.html", probabilidade = "{}%".format(int(probabilidade[:,1].round(2)*100)) )
+        return render_template("main.html", probabilidade = "Você tem {}% de chances de ser diabético(a)".format(int(probabilidade[:,1].round(2)*100)) )
 
 app.run(debug = True)
